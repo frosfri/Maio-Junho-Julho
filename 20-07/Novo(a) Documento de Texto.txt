@@ -1,0 +1,139 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const Aplicativo());
+}
+
+class Aplicativo extends StatelessWidget {
+  const Aplicativo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Novo Cadastro',
+      home: const TelaCadastro(),
+    );
+  }
+}
+
+class TelaCadastro extends StatefulWidget {
+  const TelaCadastro({super.key});
+
+  @override
+  State<TelaCadastro> createState() => _TelaCadastroState();
+}
+
+class _TelaCadastroState extends State<TelaCadastro> {
+  final chaveFormulario = GlobalKey<FormState>();
+
+  final nome = TextEditingController();
+  final email = TextEditingController();
+  final telefone = TextEditingController();
+  final senha = TextEditingController();
+
+  void cadastrar() {
+    if (chaveFormulario.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Usuário cadastrado!'),
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Criar conta'),
+        backgroundColor: Colors.teal,
+      ),
+
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Form(
+          key: chaveFormulario,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: nome,
+                decoration: const InputDecoration(
+                  labelText: 'Nome completo',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (valor) {
+                  if (valor == null || valor.trim().isEmpty) {
+                    return 'Digite seu nome';
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 15),
+
+              TextFormField(
+                controller: email,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'E-mail',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (valor) {
+                  if (valor == null || !valor.contains('@')) {
+                    return 'Digite um e-mail válido';
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 15),
+
+              TextFormField(
+                controller: telefone,
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(
+                  labelText: 'Número de telefone',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (valor) {
+                  if (valor == null || valor.length < 8) {
+                    return 'Número inválido';
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 15),
+
+              TextFormField(
+                controller: senha,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Crie uma senha',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (valor) {
+                  if (valor == null || valor.length < 6) {
+                    return 'A senha precisa ter pelo menos 6 caracteres';
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 25),
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: cadastrar,
+                  child: const Text('Criar cadastro'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

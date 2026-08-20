@@ -1,0 +1,62 @@
+atividade media -
+import 'dart:io';
+
+
+void main() {
+  print("Qual foi sua primeira nota?");
+  double notaA = double.parse(stdin.readLineSync()!);
+
+
+  print("Qual foi sua segunda nota?");
+  double notaB = double.parse(stdin.readLineSync()!);
+
+
+  double somaA = somar(notaA, notaB);
+
+
+  double media = dividir(somaA, 2);
+
+
+  print("A média das notas é: $media");
+}
+
+
+double somar(double notaA, double notaB) {
+  return notaA + notaB;
+}
+
+
+double dividir(double notaA, double notaB) {
+  return notaA / notaB;
+}
+
+atividade perguntas -
+1. Qual foi o primeiro teste que você criou?
+Soma, Divisão e media 12/08
+
+2. O teste falhou antes da implementação?
+Sim, deu alguns erros
+
+3. Por que o teste falhou?
+Porque foi erro logico e de sintaxe
+
+4. O que você fez para o teste passar?
+Arrumei o codigo e mudei os sinais 
+
+5. Qual a diferença entre testar um resultado e testar um erro?
+O resultado como o nome ja diz é o prototipo final, entao vamos ja colocar ele em pratica, ja o erro nos vamos testar pra descobrir onde no código está a falha
+
+6. O que significa a etapa Red no TDD?
+O teste deu erro, então o teste esta funcionando ele faz com que saiba que o teste pega
+
+7. O que significa a etapa Green no TDD?
+o teste passou, então é seguro
+
+8. Por que o TDD ajuda na organização do código?
+pra impedir que você escreva um codigo que nãop recisa
+
+9. Qual foi a maior dificuldade da atividade?
+descobrir onde estava o erro
+
+10. Em qual outro sistema você poderia aplicar testes parecidos?
+crud

@@ -1,0 +1,472 @@
+1-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MeuApp());
+}
+
+class MeuApp extends StatelessWidget {
+  const MeuApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const TelaInicial(),
+    );
+  }
+}
+
+class TelaInicial extends StatelessWidget {
+  const TelaInicial({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Tela Inicial'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text('Abrir detalhes'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TelaDetalhes(),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class TelaDetalhes extends StatelessWidget {
+  const TelaDetalhes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detalhes'),
+      ),
+      body: const Center(
+        child: Text('Tela de detalhes'),
+      ),
+    );
+  }
+}
+
+
+2-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const PrimeiraTela(),
+    );
+  }
+}
+
+class PrimeiraTela extends StatelessWidget {
+  const PrimeiraTela({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Primeira Tela'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SegundaTela(),
+              ),
+            );
+          },
+          child: const Text('Avançar'),
+        ),
+      ),
+    );
+  }
+}
+
+class SegundaTela extends StatelessWidget {
+  const SegundaTela({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Segunda Tela'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Voltar'),
+        ),
+      ),
+    );
+  }
+}
+
+
+3-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Minha aplicação'),
+        ),
+        body: const Center(
+          child: Text('Flutter'),
+        ),
+      ),
+    ),
+  );
+}
+
+
+4-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MeuAplicativo());
+}
+
+class MeuAplicativo extends StatelessWidget {
+  const MeuAplicativo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Meu Aplicativo'),
+        ),
+        body: const Center(
+          child: Text(
+            'Bem-vindo ao Flutter',
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+5-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MeuApp());
+}
+
+class MeuApp extends StatelessWidget {
+  const MeuApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.purple,
+        ),
+      ),
+      home: const TelaInicial(),
+    );
+  }
+}
+
+class TelaInicial extends StatelessWidget {
+  const TelaInicial({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Material Design'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Text('Botão'),
+        ),
+      ),
+    );
+  }
+}
+
+
+6-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const Aplicativo());
+}
+
+class Aplicativo extends StatelessWidget {
+  const Aplicativo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ),
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Material 3'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Text('Continuar'),
+        ),
+      ),
+    );
+  }
+}
+
+
+7-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Ícones'),
+        ),
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.home,
+                size: 40,
+              ),
+              const Icon(
+                Icons.person,
+                size: 40,
+              ),
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+8-
+
+
+name: aplicativo_teste
+
+description: Projeto Flutter
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  image_path: "assets/icon/app_icon.png"
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icon/app_icon.png
+
+
+9-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const Aplicativo());
+}
+
+class Aplicativo extends StatelessWidget {
+  const Aplicativo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Layout'),
+        ),
+        body: Column(
+          children: [
+            const Text(
+              'Perfil do usuário',
+            ),
+            const Row(
+              children: [
+                Icon(Icons.person),
+                Text('João'),
+              ],
+            ),
+            Container(
+              width: 200,
+              height: 100,
+              child: const Text(
+                'Informações do usuário',
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+10-
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MeuApp());
+}
+
+class MeuApp extends StatelessWidget {
+  const MeuApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const CadastroPage(),
+    );
+  }
+}
+
+class CadastroPage extends StatelessWidget {
+  const CadastroPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cadastro'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            const Text(
+              'Criar uma nova conta',
+              style: TextStyle(
+                fontSize: 24,
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            Image.asset(
+              'assets/imagens/perfil.png',
+              width: 150,
+            ),
+
+            const SizedBox(height: 20),
+
+            const TextField(
+              decoration: InputDecoration(
+                labelText: 'Digite seu nome',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            const SizedBox(height: 15),
+
+            const TextField(
+              decoration: InputDecoration(
+                labelText: 'E-mail',
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Cadastrar'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
